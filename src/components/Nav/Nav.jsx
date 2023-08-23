@@ -1,4 +1,4 @@
-import SearchBar from './SearchBar.jsx';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 
 export default function Nav(props) {
     return (
