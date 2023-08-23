@@ -10,7 +10,7 @@ export default function SearchBar(props) {
 
    return (
       <div>
-         <input type='search' onChange={handleChange} />
+         <input type='search' onChange={handleChange} placeholder='Search ID'/>
          <button onClick={() => props.onSearch(id)}>Agregar</button>
       </div>
    );

@@ -8,16 +8,22 @@ import './App.css';
 
 
 function App() {
-   
+
    const [characters, setCharacters] = useState([]);
-   
-   function onSearch(id) {axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name) {
-         setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-         window.alert('¡No hay personajes con este ID!');
+
+   //https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
+
+   function onSearch(id) {
+      if(!characters.some(character => character.id===parseInt(id))){
+      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+            if (data.name) {
+               setCharacters((oldChars) => [...oldChars, data]);
+            } else {
+               window.alert('¡No hay personajes con este ID!');
+            }
+         });
       }
-   });};
+   };
 
    function onClose(id) {
       let data = parseInt(id)
@@ -25,9 +31,14 @@ function App() {
       setCharacters(characters.filter(character => character.id !== data))
    }
 
+   function random() {
+      let randomId = parseInt((Math.random() * 826).toFixed())
+      onSearch(randomId);
+   }
+
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} />
+         <Nav onSearch={onSearch} random={random} />
          <Cards characters={characters} onClose={onClose} />
       </div>
    );
