@@ -13,7 +13,7 @@ function App() {
 
    //https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
 
-   function onSearch(id) {
+   function searchHandler(id) {
       if(!characters.some(character => character.id===parseInt(id))){
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
             if (data.name) {
@@ -25,21 +25,21 @@ function App() {
       }
    };
 
-   function onClose(id) {
+   function closeHandler(id) {
       let data = parseInt(id)
 
       setCharacters(characters.filter(character => character.id !== data))
    }
 
-   function random() {
+   function randomHandler() {
       let randomId = parseInt((Math.random() * 826).toFixed())
-      onSearch(randomId);
+      searchHandler(randomId);
    }
 
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} random={random} />
-         <Cards characters={characters} onClose={onClose} />
+         <Nav onSearch={searchHandler} random={randomHandler} />
+         <Cards characters={characters} onClose={closeHandler} />
       </div>
    );
 }
