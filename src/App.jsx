@@ -3,10 +3,10 @@ import Nav from './components/Nav/Nav.jsx';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import About from './views/About.jsx'
-import Detail from './views/Detail.jsx';
-import Error from './views/Error/ErrorPage.jsx';
-import Form from './views/Form.jsx';
+import About from './components/views/About/About.jsx';
+import Detail from './components/views/Detail/Detail.jsx';
+import Error from './components/views/Error/ErrorPage.jsx';
+import Form from './components/views/Form/Form.jsx';
 
 import './App.css';
 

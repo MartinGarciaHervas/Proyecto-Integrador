@@ -1,5 +1,7 @@
 import { useState } from "react";
-import validar from "../helpers/validation";
+import validar from "../../../helpers/validation";
+
+import './Form.css'
 
 function Form ({login}){
 
@@ -32,8 +34,9 @@ function Form ({login}){
 
 
     return (
-        <div>
+        <div class="form">
             <form onSubmit={handleSubmit} >
+                <br/>
                 <label>Email</label>
                 <input type="text" onChange={handleChange} name='email' placeholder="name@example.com" ></input>
                 <br/>

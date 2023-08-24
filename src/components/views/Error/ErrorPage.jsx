@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import img from '../../assets/404error1.jpg'
+import img from '../../../assets/404error1.jpg'
 
 function Error() {
 	return (
