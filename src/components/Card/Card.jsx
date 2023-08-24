@@ -8,7 +8,7 @@ function Card(props) {
          <NavLink to={`/detail/${id}`} ><h2>Nombre: {name}</h2></NavLink>
          <h2>Status: {status}</h2>
          <h2>Gender: {gender}</h2>
-         <img src={image} alt={name} />
+         <NavLink to={`/detail/${id}`} ><img src={image} alt={name} /></NavLink>
       </div>
    );
 }

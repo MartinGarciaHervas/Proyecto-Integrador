@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import About from './views/About.jsx'
 import Detail from './views/Detail.jsx';
+import Error from './views/Error/ErrorPage.jsx';
 
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
             <Route path='/' element={<Cards characters={characters} onClose={closeHandler} />} />
             <Route path='/about' element={<About/>} />
             <Route path='/detail/:id' element={<Detail/>} />
+            <Route path='*' element={<Error/>}/>
          </Routes>
          
       </div>
