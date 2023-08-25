@@ -11,8 +11,8 @@ function Form ({login}){
     })
 
     const [errors, setErrors] = useState({
-        email:"",
-        password:"",
+        email:"El nombre de usuario no puede estar vacio",
+        password:"La contraseña debe tener al menos 1 numero y entre 6 y 10 caracteres",
     })
 
     function handleChange (event) {
