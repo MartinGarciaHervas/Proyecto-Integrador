@@ -22,7 +22,7 @@ function App() {
    const PASSWORD = "powerfc1";
 
    function login(userData){
-      if(userData.email === EMAIL && userData.password === PASSWORD){
+      if(userData.email.toLowerCase() === EMAIL && userData.password === PASSWORD){
          setAccess(true);
          navigate('/home');
       }
