@@ -1,7 +1,7 @@
 import { useState } from "react";
 import validar from "../../../helpers/validation";
 
-import './Form.css'
+import style from './Form.module.css'
 
 function Form ({login}){
 
@@ -34,20 +34,22 @@ function Form ({login}){
 
 
     return (
-        <div class="form">
+        <div className={style.background}>
+            <h1 className={style.titulo} >Rick and Morty</h1>
+            <h1 className={style.titulo1} >Rick and Morty</h1>
             <form onSubmit={handleSubmit} >
                 <br/>
                 <label>Email</label>
-                <input type="text" onChange={handleChange} name='email' placeholder="name@example.com" ></input>
+                <input className={style.input} type="text" onChange={handleChange} name='email' placeholder="name@example.com" ></input>
                 <br/>
-                <span>{errors.email}</span>
+                <span className={style.errores} >{errors.email}</span>
                 <br/>
                 <label>Password</label>
-                <input type="password" onChange={handleChange} name='password' placeholder="password" ></input>
+                <input className={style.input} type="password" onChange={handleChange} name='password' placeholder="password" ></input>
                 <br/>
-                <span>{errors.password}</span>
+                <span className={style.errores} >{errors.password}</span>
                 <br/>
-                {errors.email || errors.password || !userData.email ? (<button type="submit" disabled>Log in</button>) : (<button type="submit" >Log in</button>)}
+                {errors.email || errors.password || !userData.email ? (<button className={style.loginButton} type="submit" disabled>Log in</button>) : (<button className={style.loginButton} type="submit" >Log in</button>)}
             </form>
         </div>
     )
