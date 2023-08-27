@@ -1,0 +1,39 @@
+.todo {
+   width: 100vw;
+   height: 100vh;
+}
+
+.App {
+   text-align: center;
+   width: 100vw;
+   height: 100vh;
+   z-index: 1;
+   position: absolute;
+}
+
+.space {
+   position: absolute;
+   width: 400vw;
+   height: 400vh;
+   top: 50%;
+   left: 50%;
+   z-index: 0;
+   margin-top: -200vh;
+   margin-left: -200vw;
+   animation: spin 240s linear infinite;
+   background-size: 250px;
+   backface-visibility: visible;
+   background-image: url(./assets/fondo.png);
+}
+
+@keyframes spin {
+  
+   from {
+     transform: rotate( 0deg );
+   }
+   
+   to {
+     transform: rotate( -360deg );
+   }
+ }
+

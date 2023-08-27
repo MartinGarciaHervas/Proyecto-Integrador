@@ -8,7 +8,7 @@ import Detail from './components/views/Detail/Detail.jsx';
 import Error from './components/views/Error/ErrorPage.jsx';
 import Form from './components/views/Form/Form.jsx';
 
-import './App.css';
+import style from './App.module.css';
 
 
 
@@ -21,14 +21,14 @@ function App() {
    const EMAIL = "martinghervas@hotmail.com";
    const PASSWORD = "powerfc1";
 
-   function login(userData){
-      if(userData.email.toLowerCase() === EMAIL && userData.password === PASSWORD){
+   function login(userData) {
+      if (userData.email.toLowerCase() === EMAIL && userData.password === PASSWORD) {
          setAccess(true);
          navigate('/home');
       }
    }
 
-   function logOut(){
+   function logOut() {
       setAccess(false);
    }
 
@@ -41,8 +41,8 @@ function App() {
    //https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
 
    function searchHandler(id) {
-      if(!characters.some(character => character.id===parseInt(id))){
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      if (!characters.some(character => character.id === parseInt(id))) {
+         axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
             } else {
@@ -66,17 +66,20 @@ function App() {
    const location = useLocation()
 
    return (
-      <div className='App'>
-         {location.pathname !== "/" ? (<Nav onSearch={searchHandler} random={randomHandler} logOut={logOut} />) : null}
-         
-         <Routes>
-            <Route path='/home' element={<Cards characters={characters} onClose={closeHandler} />} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/detail/:id' element={<Detail/>} />
-            <Route path='/' element={<Form login={login}/>}/>
-            <Route path='*' element={<Error/>}/>
-         </Routes>
-         
+      <div className={style.todo} >
+         <div className={style.space} ></div>
+         <div className={style.App}>
+            {location.pathname !== "/" ? (<Nav onSearch={searchHandler} random={randomHandler} logOut={logOut} />) : null}
+
+            <Routes>
+               <Route path='/home' element={<Cards characters={characters} onClose={closeHandler} />} />
+               <Route path='/about' element={<About />} />
+               <Route path='/detail/:id' element={<Detail />} />
+               <Route path='/' element={<Form login={login} />} />
+               <Route path='*' element={<Error />} />
+            </Routes>
+
+         </div>
       </div>
    );
 }

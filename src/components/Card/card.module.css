@@ -1,0 +1,11 @@
+.card {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20%;
+    background-color: black;
+    color: white;
+}
+
+.card img {
+    border-radius: 20%;
+}

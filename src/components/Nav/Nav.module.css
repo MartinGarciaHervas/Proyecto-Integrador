@@ -1,0 +1,28 @@
+.Nav {
+    display: flex;
+}
+
+.Nav .logOut {
+    margin-left: auto;
+}
+
+button {
+    border-radius: 5px;
+    background-color: grey;
+    color: greenyellow;
+}
+
+/* .Nav .botones {
+    display: flex;
+justify-content: start;
+}
+
+.Nav .logOut {
+    display: flex;
+    justify-content: end;
+} */
+
+.random {
+    display: flex;
+    justify-content: center;
+}

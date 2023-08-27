@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('../../../assets/Portal.png'), radial-gradient(circle, rgb(1, 255, 1), rgb(19, 39, 3) , black) ;
+    background-image: url('../../../assets/Portal.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

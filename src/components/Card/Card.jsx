@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import style from './card.module.css'
 
 function Card(props) {
-   const {id, name, status, gender, image, onClose} = props;
+   const { id, name, status, gender, image, onClose } = props;
    return (
-      <div>
+      <div className={style.card} >
          <button onClick={() => onClose(id)}>X</button>
-         <NavLink to={`/detail/${id}`} ><h2>Nombre: {name}</h2></NavLink>
-         <h2>Status: {status}</h2>
-         <h2>Gender: {gender}</h2>
+         <h3>{name}</h3>
+         <h4>Status: {status}</h4>
+         <h4>Gender: {gender}</h4>
          <NavLink to={`/detail/${id}`} ><img src={image} alt={name} /></NavLink>
       </div>
    );
