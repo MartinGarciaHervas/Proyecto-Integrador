@@ -7,6 +7,7 @@ import About from './components/views/About/About.jsx';
 import Detail from './components/views/Detail/Detail.jsx';
 import Error from './components/views/Error/ErrorPage.jsx';
 import Form from './components/views/Form/Form.jsx';
+import Favorites from './components/Favorites/favorites.jsx';
 
 import style from './App.module.css';
 
@@ -75,6 +76,7 @@ function App() {
                <Route path='/home' element={<Cards characters={characters} onClose={closeHandler} />} />
                <Route path='/about' element={<About />} />
                <Route path='/detail/:id' element={<Detail />} />
+               <Route path='/favorites' element={<Favorites />} />
                <Route path='/' element={<Form login={login} />} />
                <Route path='*' element={<Error />} />
             </Routes>

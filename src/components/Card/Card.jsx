@@ -1,8 +1,35 @@
 import { NavLink } from "react-router-dom";
-import style from './card.module.css'
+import style from './card.module.css';
+import { addFav, removeFav } from '../../redux/actions/actions'
+import { useState, useEffect } from "react";
+import { connect } from 'react-redux'
 
 function Card(props) {
+
+   const [isFav, setIsFav] = useState(false);
+
+   function handleFavorite() {
+      if (isFav) {
+         setIsFav(false);
+         props.removeFav(props.id)
+      }
+      if (!isFav) {
+         setIsFav(true);
+         props.addFav(props)
+      }
+   }
+
+   useEffect(() => {
+      (props.myFavorites).forEach((fav) => {
+         if (fav.id === id) {
+            setIsFav(true);
+         }
+      });
+   }, [props.myFavorites]);
+
    const { id, name, status, gender, image, onClose } = props;
+
+
    return (
       <div className={style.card} >
          <button onClick={() => onClose(id)}>X</button>
@@ -10,8 +37,27 @@ function Card(props) {
          <h4>Status: {status}</h4>
          <h4>Gender: {gender}</h4>
          <NavLink to={`/detail/${id}`} ><img src={image} alt={name} /></NavLink>
+         {isFav ? (<button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)
+         }
       </div>
    );
 }
 
-export default Card;
+function mapDispatchToProps(dispatch) {
+   return {
+      addFav: (personaje) => {
+         dispatch(addFav(personaje))
+      },
+      removeFav: (id) => {
+         dispatch(removeFav(id))
+      }
+   }
+}
+
+function mapStateToProps(state) {
+   return {
+      myFavorites: state.myFavorites
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
