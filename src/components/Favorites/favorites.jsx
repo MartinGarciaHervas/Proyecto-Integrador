@@ -12,7 +12,7 @@ return(
                status={fav.status}
                species={fav.species}
                gender={fav.gender}
-               origin={fav.origin.name}
+               origin={fav.origin?.name}
                image={fav.image} ></Card>)}
     </div>
 )

@@ -11,11 +11,11 @@ function Card(props) {
    function handleFavorite() {
       if (isFav) {
          setIsFav(false);
-         props.removeFav(props.id)
+         removeFav(id)
       }
       if (!isFav) {
          setIsFav(true);
-         props.addFav(props)
+         addFav(props)
       }
    }
 
@@ -27,7 +27,7 @@ function Card(props) {
       });
    }, [props.myFavorites]);
 
-   const { id, name, status, gender, image, onClose } = props;
+   const { id, name, status, gender, image, onClose, addFav, removeFav} = props;
 
 
    return (
