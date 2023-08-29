@@ -7,7 +7,7 @@ import About from './components/views/About/About.jsx';
 import Detail from './components/views/Detail/Detail.jsx';
 import Error from './components/views/Error/ErrorPage.jsx';
 import Form from './components/views/Form/Form.jsx';
-import Favorites from './components/Favorites/favorites.jsx';
+import Favorites from './components/views/Favorites/favorites.jsx';
 
 import style from './App.module.css';
 
@@ -20,7 +20,7 @@ function App() {
    const [access, setAccess] = useState(false);
 
    const EMAIL = "martinghervas@hotmail.com";
-   const PASSWORD = "powerfc1";
+   const PASSWORD = "prueba123";
 
    function login(userData) {
       if (userData.email.toLowerCase() === EMAIL && userData.password === PASSWORD) {

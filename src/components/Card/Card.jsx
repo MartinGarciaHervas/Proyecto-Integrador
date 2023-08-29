@@ -7,8 +7,10 @@ import { connect } from 'react-redux'
 function Card(props) {
 
    const [isFav, setIsFav] = useState(false);
-
-   function handleFavorite() {
+   
+   const { id, name, status, gender, image, onClose, addFav, removeFav, myFavorites} = props;
+   
+   function favoriteHandler() {
       if (isFav) {
          setIsFav(false);
          removeFav(id)
@@ -20,14 +22,13 @@ function Card(props) {
    }
 
    useEffect(() => {
-      (props.myFavorites).forEach((fav) => {
+      (myFavorites).forEach((fav) => {
          if (fav.id === id) {
             setIsFav(true);
          }
       });
-   }, [props.myFavorites]);
+   }, [myFavorites]);
 
-   const { id, name, status, gender, image, onClose, addFav, removeFav} = props;
 
 
    return (
@@ -37,8 +38,8 @@ function Card(props) {
          <h4>Status: {status}</h4>
          <h4>Gender: {gender}</h4>
          <NavLink to={`/detail/${id}`} ><img src={image} alt={name} /></NavLink>
-         {isFav ? (<button onClick={handleFavorite}>❤️</button>) : (<button onClick={handleFavorite}>🤍</button>)
-         }
+         {isFav ? (<button onClick={favoriteHandler}>❤️</button>) : (<button onClick={favoriteHandler}>🤍</button>)
+      }
       </div>
    );
 }
