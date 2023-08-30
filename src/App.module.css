@@ -1,17 +1,12 @@
-.todo {
-   width: 100vw;
-   height: 100vh;
-}
-
 .App {
    text-align: center;
-   width: 100vw;
-   height: 100vh;
-   z-index: 1;
-   position: absolute;
+   /* width: 100vw; 
+   height: 100vh; */
+   /* z-index: 1; */
+   /* position: absolute; */
 }
 
-.space {
+/* .space {
    position: absolute;
    width: 400vw;
    height: 400vh;
@@ -35,5 +30,5 @@
    to {
      transform: rotate( -360deg );
    }
- }
+ } */
 

@@ -33,18 +33,18 @@ function Form ({login}){
     }
 
 
-    return (
+    return ( 
         <div className={style.background}>
             <h1 className={style.titulo} >Rick and Morty</h1>
             <h1 className={style.titulo1} >Rick and Morty</h1>
-            <form onSubmit={handleSubmit} >
+            <form className={style.container} onSubmit={handleSubmit} >
                 <br/>
-                <label>Email</label>
+                <label className={style.label}>Email</label>
                 <input className={style.input} type="text" onChange={handleChange} name='email' placeholder="name@example.com" ></input>
                 <br/>
                 <span className={style.errores} >{errors.email}</span>
                 <br/>
-                <label>Password</label>
+                <label className={style.label}>Password</label>
                 <input className={style.input} type="password" onChange={handleChange} name='password' placeholder="password" ></input>
                 <br/>
                 <span className={style.errores} >{errors.password}</span>

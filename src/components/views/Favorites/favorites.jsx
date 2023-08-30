@@ -9,10 +9,8 @@ function Favorites(){
 const [aux, setAux] = useState(false)
 
 const myFavorites = useSelector(state => state.myFavorites);
-const allCharacters = useSelector(state => state.allCharacters);
+// const allFavorites = useSelector(state => state.allFavorites);
 const dispatch = useDispatch();
-
-console.log(allCharacters);
 
 function orderHandler(event){
     dispatch(orderCards(event.target.value));

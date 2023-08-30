@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/views/About/About.jsx';
 import Detail from './components/views/Detail/Detail.jsx';
 import Error from './components/views/Error/ErrorPage.jsx';
@@ -16,6 +17,8 @@ import style from './App.module.css';
 function App() {
 
    const navigate = useNavigate();
+   const characters = useSelector(state => state.characters)
+   const location = useLocation()
 
    const [access, setAccess] = useState(true);
 
@@ -37,43 +40,18 @@ function App() {
       !access && navigate('/');
    }, [access]);
 
-   const [characters, setCharacters] = useState([]);
 
    //https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
 
-   function searchHandler(id) {
-      if (!characters.some(character => character.id === parseInt(id))) {
-         axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               window.alert('¡No hay personajes con este ID!');
-            }
-         });
-      }
-   };
-
-   function closeHandler(id) {
-      let data = parseInt(id)
-
-      setCharacters(characters.filter(character => character.id !== data))
-   }
-
-   function randomHandler() {
-      let randomId = parseInt((Math.random() * 826).toFixed())
-      searchHandler(randomId);
-   }
-
-   const location = useLocation()
 
    return (
       <div className={style.todo} >
          <div className={style.space} ></div>
          <div className={style.App}>
-            {location.pathname !== "/" ? (<Nav onSearch={searchHandler} random={randomHandler} logOut={logOut} />) : null}
+            {location.pathname !== "/" ? (<Nav logOut={logOut} />) : null}
 
             <Routes>
-               <Route path='/home' element={<Cards characters={characters} onClose={closeHandler} />} />
+               <Route path='/home' element={<Cards characters={characters} />} />
                <Route path='/about' element={<About />} />
                <Route path='/detail/:id' element={<Detail />} />
                <Route path='/favorites' element={<Favorites />} />

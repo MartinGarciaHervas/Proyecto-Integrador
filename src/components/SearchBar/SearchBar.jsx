@@ -1,14 +1,19 @@
 import { useState } from 'react';
 import style from './searchBar.module.css'
+import { useDispatch } from 'react-redux';
+import { addCharacter } from '../../redux/actions/actions';
 
 
 export default function SearchBar(props) {
 
+   const dispatch = useDispatch();
+
    const [id, setId] = useState("");
 
    const changeHandler = (event) => {setId(event.target.value)}
+
    let clickHandler = () => {
-      props.onSearch(id);
+      dispatch(addCharacter(id));
       setId('')
    }
 
