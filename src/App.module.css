@@ -1,34 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"); 
+
 .App {
    text-align: center;
-   /* width: 100vw; 
-   height: 100vh; */
-   /* z-index: 1; */
-   /* position: absolute; */
-}
-
-/* .space {
-   position: absolute;
-   width: 400vw;
-   height: 400vh;
-   top: 50%;
-   left: 50%;
-   z-index: 0;
-   margin-top: -200vh;
-   margin-left: -200vw;
-   animation: spin 240s linear infinite;
-   background-size: 250px;
-   backface-visibility: visible;
    background-image: url(./assets/fondo.png);
+   background-size: 250px;
+   min-height: 100vh;
+   margin: 0px;
 }
 
-@keyframes spin {
-  
-   from {
-     transform: rotate( 0deg );
-   }
-   
-   to {
-     transform: rotate( -360deg );
-   }
- } */
+.material-symbols-rounded {
+   font-variation-settings:
+   'FILL' 0,
+   'wght' 200,
+   'GRAD' 200,
+   'opsz' 48
+ }
 

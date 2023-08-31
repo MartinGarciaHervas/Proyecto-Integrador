@@ -1,8 +1,21 @@
-/* .searchBar {
-    display: flex;
-    justify-content: center;
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../../assets/r&mFont.ttf') format('truetype');
 }
 
-input {
-    border-radius: 5px;
-} */
+@font-face {
+    font-family: 'R&M';
+    src: url('../../../assets/get_schwifty.ttf') format('truetype');
+}
+
+
+.button {
+    background-color: transparent;
+    border: 0;
+    font-family: 'MyFont';
+    font-size: 20px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}

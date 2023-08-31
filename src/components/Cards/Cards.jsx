@@ -1,6 +1,6 @@
 
 import Card from '../Card/Card';
-import style from './cards.modules.css'
+import style from './cards.module.css'
 
 export default function Cards({characters}) {
    return (

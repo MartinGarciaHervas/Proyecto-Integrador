@@ -8,7 +8,7 @@ function Card(props) {
 
    const [isFav, setIsFav] = useState(false);
    
-   const { id, name, status, gender, image} = props;
+   const { id, name, gender, image, species} = props;
 
    const myFavorites = useSelector(state => state.myFavorites);
    const dispatch = useDispatch();
@@ -42,13 +42,14 @@ function Card(props) {
 
    return (
       <div className={style.card} >
-         {location.pathname !== '/favorites' && <button onClick={closeHandler}>X</button>}
-         <h3>{name}</h3>
-         <h4>Status: {status}</h4>
+         <div className={style.buttons}>
+         {isFav ? (<button className={style.fav} onClick={favoriteHandler}><span class="material-symbols-rounded">favorite</span></button>) : (<button className={style.fav2} onClick={favoriteHandler}><span class="material-symbols-rounded">favorite</span></button>)}
+         {location.pathname !== '/favorites' && <button className={style.close} onClick={closeHandler}>✖</button>}
+         </div>
+         <h2 className={style.name} >{name}</h2>
+         <h4>Species: {species}</h4>
          <h4>Gender: {gender}</h4>
-         <NavLink to={`/detail/${id}`} ><img src={image} alt={name} /></NavLink>
-         {isFav ? (<button onClick={favoriteHandler}>❤️</button>) : (<button onClick={favoriteHandler}>🤍</button>)
-      }
+         <NavLink to={`/detail/${id}`} ><img className={style.image} src={image} alt={name} /></NavLink>
       </div>
    );
 }

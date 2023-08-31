@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../assets/r&mFont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'R&M';
+    src: url('../../assets/get_schwifty.ttf') format('truetype');
+}
+
+.card {
+    background-image: url(../../assets/FondoCard.jpg);
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition-duration: 0.5s;
+}
+
+.name{
+    font-family: 'MyFont';
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.image {
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.close {
+    border-top-right-radius: 20px;
+    width: 50px;
+    background-color: transparent;
+    color: red;
+    font-weight: bolder;
+}
+
+.fav {
+    border-top-left-radius: 20px;
+    width: 50px;
+    background-color: transparent;
+    color: red;
+}
+
+.fav2 {
+    border-top-left-radius: 20px;
+    width: 50px;
+    background-color: transparent;
+    color: white;
+}

@@ -45,8 +45,6 @@ function App() {
 
 
    return (
-      <div className={style.todo} >
-         <div className={style.space} ></div>
          <div className={style.App}>
             {location.pathname !== "/" ? (<Nav logOut={logOut} />) : null}
 
@@ -60,7 +58,6 @@ function App() {
             </Routes>
 
          </div>
-      </div>
    );
 }
 

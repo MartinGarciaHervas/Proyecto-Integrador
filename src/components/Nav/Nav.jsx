@@ -8,21 +8,25 @@ export default function Nav(props) {
 
     const dispatch = useDispatch();
 
-    const randomHandler = () =>{
+    const randomHandler = () => {
         dispatch(addRandomCharacter())
     }
 
     return (
         <div>
-            <div className={style.Nav} >
-                <NavLink to='/about'><button>About</button></NavLink>
-                <NavLink to='/home'><button>Home</button></NavLink> 
-                <NavLink to='/favorites'><button>Favorites</button></NavLink>              
-                <NavLink to='/'><button onClick={props.logOut} >Log Out</button></NavLink>            
-            </div>
-            <SearchBar />
-            <div>
-            <button onClick={randomHandler}>RANDOM</button>
+            <div className={style.nav} >
+                <div className={style.botonesIndex} >
+                    <NavLink to='/home'><button className={style.buttons} ><span class="material-symbols-rounded">home</span></button></NavLink>
+                    <NavLink to='/favorites'><button className={style.buttons} ><span class="material-symbols-rounded">favorite</span></button></NavLink>
+                    <NavLink to='/about'><button className={style.buttons} ><span>ABOUT</span></button></NavLink>
+                </div>
+                <div className={style.searchBar} >
+                    <SearchBar />
+                    <button className={style.random} onClick={randomHandler}>ADD RANDOM</button>
+                </div>
+                <div className={style.botonesIndex} >
+                    <NavLink to='/'><button className={style.logOut} onClick={props.logOut} ><span class="material-symbols-rounded">logout</span></button></NavLink>
+                </div>
             </div>
         </div>
     )

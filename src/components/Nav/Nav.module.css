@@ -1,28 +1,75 @@
-/* .Nav {
-    display: flex;
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../../assets/r&mFont.ttf') format('truetype');
 }
 
-.Nav .logOut {
-    margin-left: auto;
+@font-face {
+    font-family: 'R&M';
+    src: url('../../../assets/get_schwifty.ttf') format('truetype');
 }
 
-button {
-    border-radius: 5px;
-    background-color: grey;
-    color: greenyellow;
-} */
-
-/* .Nav .botones {
+.nav {
     display: flex;
-justify-content: start;
+    justify-content: space-between;
+    width: 100vw;
+    height: 80px;
+    z-index: 4;
+    background: linear-gradient(black, #3B5864, black);
+    position: fixed;
+    margin: 0;
 }
 
-.Nav .logOut {
-    display: flex;
-    justify-content: end;
-} */
+.buttons {
+    background-color: transparent;
+    height: 100%;
+    width: 100px;
+    font-family: 'MyFont';
+    background: linear-gradient(black, #3B5864, black);
+    border: 0;
+    font-size: 20px;
+}
 
-/* .random {
-    display: flex;
+.buttons:hover {
+    transform: scale(1.1);
+}
+
+.logOut {
+    height: 100%;
+    width: 100px;
+    font-family: 'MyFont';
+    background: linear-gradient(black, #3B5864, black);
+    border: 0;
+    font-size: 20px;
+    z-index: 1;
+    margin-right: 10px;
+}
+
+.logOut:hover {
+    transform: scale(1.1);
+}
+
+.searchBar {
+    display: grid;
+    position: absolute;
     justify-content: center;
-} */
+    width: 98vw;
+    margin-top: 17px;
+    background-color: transparent;
+    z-index: 0;
+    padding-left: 22px;
+}
+
+.random {
+    background-color: transparent;
+    border: 0;
+    font-family: 'MyFont';
+    font-size: 20px;
+}
+
+.random:hover {
+    transform: scale(1.1);
+}
+
+.botonesIndex {
+    z-index: 1;
+}
