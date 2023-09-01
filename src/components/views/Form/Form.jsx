@@ -50,7 +50,7 @@ function Form({ login }) {
                     <br />
                     <span className={style.errores} >{errors.password}</span>
                     <br />
-                    {errors.email || errors.password || !userData.email ? (<button className={style.loginButton} type="submit" disabled><span class="material-symbols-rounded">login</span></button>) : (<button className={style.loginButton} type="submit" >Log in</button>)}
+                    {errors.email || errors.password || !userData.email ? (<button className={style.loginButton} type="submit" disabled><span className="material-symbols-rounded">login</span></button>) : (<button className={style.loginButton} type="submit" >Log in</button>)}
                 </form>
             </div>
         </div>
