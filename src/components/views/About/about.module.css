@@ -1,0 +1,23 @@
+.about {
+    padding-top: 80px;
+    width: 99vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.containerImg {
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+.img {
+    border-radius: 100px;
+    width: 500px;
+}
+
+.aboutMe {
+    padding-top: 60px;
+    color: white;
+    width: 500px;
+}

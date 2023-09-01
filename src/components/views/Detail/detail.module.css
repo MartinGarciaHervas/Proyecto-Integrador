@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../../assets/r&mFont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'R&M';
+    src: url('../../../assets/get_schwifty.ttf') format('truetype');
+}
+
+.background {
+    background-image: url(../../../assets/rick_7680x4320_xtrafondos.com.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detail {
+    padding-left: 100px;
+    padding-top: 150px;
+    font-family: 'MyFont';
+    font-size: 25px;
+    color: rgb(118, 196, 0);
+}
+
+.image {
+    border-radius: 999ex;
+    width: 350px;
+    background-color: black;
+}
+
+.rick {
+    background-image: url(../../../assets/rick-sanchez-foto-policial-de-rick-y-morty_7680x4324_xtrafondos.com.jpg);
+    background-size: contain;
+    width: 99.5vw;
+    height: 99.5vh;
+}
+
+.detail1 {
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 150px;
+    font-family: 'MyFont';
+    font-size: 40px;
+    color: rgb(118, 196, 0);
+}
+
