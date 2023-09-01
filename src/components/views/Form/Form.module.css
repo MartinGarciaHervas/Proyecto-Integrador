@@ -11,6 +11,7 @@
 .background {
     background-image: url(../../../assets/rick-y-morty-fanart-2020_3840x2160_xtrafondos.com.jpg);
     background-size: cover;
+    background-position: center;
 }
 
 .portal {
@@ -85,11 +86,10 @@
 }
 
 .titulo {
-    display: flex;
+    /* display: flex; */
     position: absolute;
-    height: fit-content;
-    width: fit-content;
-    padding-bottom: 700px;
+    padding-bottom: 650px;
+    padding-top: 50px;
     font-family: 'R&M';
     font-size: 150px;
     color: #CE2567;
@@ -98,17 +98,28 @@
 }
 
 .titulo1 {
-    display: flex;
+    /* display: flex; */
     position: absolute;
-    height: fit-content;
-    width: fit-content;
-    padding-bottom: 700px;
+    padding-bottom: 650px;
+    padding-top: 50px;
     font-family: 'R&M';
     font-size: 152px;
     animation-duration: 3s;
     animation-name: glow;
     animation-iteration-count: infinite;
     z-index: 0;
+}
+
+@media screen and (max-width:1200px) {
+    .titulo, .titulo1 {
+        font-size: 75px;
+    }   
+}
+
+@media screen and (max-height:800px) {
+    .titulo, .titulo1 {
+        padding-bottom: 500px;
+    }   
 }
 
 @keyframes glow {

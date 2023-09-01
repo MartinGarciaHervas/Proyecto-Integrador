@@ -3,7 +3,7 @@
 .App {
    text-align: center;
    background-image: url(./assets/fondo.png);
-   background-size: 250px;
+   background-size: 15.625em;
    min-height: 100vh;
    margin: 0px;
 }
