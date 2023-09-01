@@ -31,7 +31,7 @@ export const orderCards = (orden) => {
 
 export const addCharacter = (id) => {
     return (dispatch) => {
-        axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+        return axios.get(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
             if (data.name) {
                 const character = data;
                 dispatch({
@@ -53,7 +53,7 @@ export const removeCharacter = (id) => {
 export const addRandomCharacter = () => {
     let randomId = parseInt((Math.random() * 826).toFixed());
     return (dispatch) => {
-        axios.get(`https://rickandmortyapi.com/api/character/${randomId}`).then(({ data }) => {
+        return axios.get(`https://rickandmortyapi.com/api/character/${randomId}`).then(({ data }) => {
             if (data.name) {
                 const character = data;
                 dispatch({
