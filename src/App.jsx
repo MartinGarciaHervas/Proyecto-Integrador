@@ -22,7 +22,7 @@ function App() {
 
    const [access, setAccess] = useState(true);
 
-   const EMAIL = "martinghervas@hotmail.com";
+   const EMAIL = "prueba@gmail.com";
    const PASSWORD = "prueba123";
 
    function login(userData) {
