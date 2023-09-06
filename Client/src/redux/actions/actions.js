@@ -53,7 +53,7 @@ export const removeCharacter = (id) => {
 export const addRandomCharacter = () => {
     let randomId = parseInt((Math.random() * 826).toFixed());
     return (dispatch) => {
-        return axios.get(`https://rickandmortyapi.com/api/character/${randomId}`).then(({ data }) => {
+        return axios.get(`http://localhost:3001/rickandmorty/character/${randomId}`).then(({ data }) => {
             if (data.name) {
                 const character = data;
                 dispatch({
