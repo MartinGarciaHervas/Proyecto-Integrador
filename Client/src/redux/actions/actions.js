@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER } from './actionTypes'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS } from './actionTypes'
 import axios from 'axios'
 
 export const addFav = (personaje) => {
@@ -39,6 +39,8 @@ export const addCharacter = (id) => {
                     payload: character
                 });
             }
+        }).catch((err)=>{
+            console.log(err);
         });
     };
 };
@@ -64,3 +66,9 @@ export const addRandomCharacter = () => {
         });
     };
 };
+
+export const clearCharacters = () => {
+    return {
+        type: CLEAR_CHARACTERS,
+    }
+}

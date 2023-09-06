@@ -1,4 +1,4 @@
-import { ADD_CHARACTER, ADD_FAV, ADD_RANDOM_CHARACTER, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV } from '../actions/actionTypes'
+import { ADD_CHARACTER, ADD_FAV, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV } from '../actions/actionTypes'
 
 let initialState = {
     myFavorites: [],
@@ -53,6 +53,12 @@ function rootReducer(state = initialState, action) {
                     ...state,
                     characters: [...state.characters, action.payload]
                 }
+
+        case CLEAR_CHARACTERS:
+            return {
+                ...state,
+                characters: []
+            }
 
 
 
