@@ -7,7 +7,6 @@ http.createServer((req, res)=>{
     const {url} = req;
     const aux = url.split('/')
     const id = parseInt(aux.pop())
-    console.log(id);
     if(url.includes('/rickandmorty/character')){
         getCharById(res, id)
     }
