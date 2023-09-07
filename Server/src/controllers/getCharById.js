@@ -11,6 +11,6 @@ module.exports = function getCharById (res, id) {
         res.writeHead(500, {
             'Content-Type':'text/plain'
         })
-        res.end(JSON.stringify(error))
+        res.end(error.message)
     })
 }
