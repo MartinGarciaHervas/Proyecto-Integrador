@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS } from './actionTypes'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR } from './actionTypes'
 import axios from 'axios'
 
 export const addFav = (personaje) => {
@@ -70,5 +70,18 @@ export const addRandomCharacter = () => {
 export const clearCharacters = () => {
     return {
         type: CLEAR_CHARACTERS,
+    }
+}
+
+export const characterDetail = (id) => {
+    return {
+        type: CHARACTER_DETAIL,
+        payload: id,
+    }
+}
+
+export const detailClear = () => {
+    return {
+        type: DETAIL_CLEAR,
     }
 }

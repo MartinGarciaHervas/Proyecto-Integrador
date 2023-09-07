@@ -1,49 +1,43 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import style from './detail.module.css'
+import { characterDetail, detailClear } from "../../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 function Detail() {
-    const { id } = useParams()
+    const {id} = useParams()
+    const dispatch = useDispatch()
 
-    const [character, setCharacter] = useState([])
+    const [detail] = useSelector(state => state.detail);
 
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-            if (data.name) {
-                setCharacter(data);
-            } else {
-                window.alert('No hay personajes con ese ID');
-            }
-        });
-        return setCharacter({});
-    }, [id]);
-
-
+        dispatch(characterDetail(id));
+    }, []);
 
     return (
         <div>
-            {character?.id === 1 ?
+            {detail?.id === 1 ?
                 <div className={style.rick} >
                     <div className={style.detail1}>
                         <div>
-                        <h2>{character?.name}</h2>
-                        <h2>Status: {character?.status}</h2>
-                        <h2>Species: {character?.species}</h2>
-                        <h2>Gender: {character?.gender}</h2>
-                        <h2>Origin: {character?.origin?.name}</h2>
+                        <h2>{detail?.name}</h2>
+                        <h2>Status: {detail?.status}</h2>
+                        <h2>Species: {detail?.species}</h2>
+                        <h2>Gender: {detail?.gender}</h2>
+                        <h2>Origin: {detail?.origin?.name}</h2>
                         </div>
                     </div>
                 </div>
                 :
                 <div className={style.background} >
                     <div className={style.detail} >
-                        <img className={style.image} src={character?.image} alt="imagen"></img>
-                        <h2>{character?.name}</h2>
-                        <h2>Status: {character?.status}</h2>
-                        <h2>Species: {character?.species}</h2>
-                        <h2>Gender: {character?.gender}</h2>
-                        <h2>Origin: {character?.origin?.name}</h2>
+                        <img className={style.image} src={detail?.image} alt="imagen"></img>
+                        <h2>{detail?.name}</h2>
+                        <h2>Status: {detail?.status}</h2>
+                        <h2>Species: {detail?.species}</h2>
+                        <h2>Gender: {detail?.gender}</h2>
+                        <h2>Origin: {detail?.origin?.name}</h2>
                     </div>
                 </div>}
         </div>

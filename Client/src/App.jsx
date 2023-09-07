@@ -12,6 +12,7 @@ import Favorites from './components/views/Favorites/favorites.jsx';
 
 import style from './App.module.css';
 
+//https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
 
 
 function App() {
@@ -39,9 +40,6 @@ function App() {
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
-
-
-   //https://rym2-production.up.railway.app/api/character/${id}?key=henrym-MartinGarciaHervas
 
 
    return (
