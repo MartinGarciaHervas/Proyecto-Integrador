@@ -43,7 +43,7 @@ function Card(props) {
    return (
       <div className={style.card} >
          <div className={style.buttons}>
-         {isFav ? (<button className={style.fav} onClick={favoriteHandler}><span class="material-symbols-rounded">favorite</span></button>) : (<button className={style.fav2} onClick={favoriteHandler}><span class="material-symbols-rounded">favorite</span></button>)}
+         {isFav ? (<button className={style.fav} onClick={favoriteHandler}><span className="material-symbols-rounded">favorite</span></button>) : (<button className={style.fav2} onClick={favoriteHandler}><span className="material-symbols-rounded">favorite</span></button>)}
          {location.pathname !== '/favorites' && <button className={style.close} onClick={closeHandler}>✖</button>}
          </div>
          <h2 className={style.name} >{name}</h2>
