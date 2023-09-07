@@ -7,10 +7,10 @@ module.exports = function getCharById (res, id) {
             'Content-Type':'application/json'
         })
         res.end(JSON.stringify(character))
-    },(error)=>{
+    }).catch((error)=>{
         res.writeHead(500, {
             'Content-Type':'text/plain'
         })
-        res.end(error.message)
+        res.end(error.message) //los errores son objetos, y tienen una propiedad que se llama message
     })
 }
