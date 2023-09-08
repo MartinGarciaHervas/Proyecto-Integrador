@@ -1,19 +1,28 @@
 import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR } from './actionTypes'
 import axios from 'axios'
 
-export const addFav = (personaje) => {
-    return {
-        type: ADD_FAV,
-        payload: personaje,
-    }
-}
+export const addFav = (favorite) => {
+    return (dispatch) => {
+       axios.post('http://localhost:3001/rickandmorty/fav', favorite).then(({ data }) => {
+        console.log(data);
+          return dispatch({
+             type: ADD_FAV,
+             payload: data,
+          });
+       });
+    };
+ };
 
-export const removeFav = (id) => {
-    return {
-        type: REMOVE_FAV,
-        payload: id,
-    }
-}
+ export const removeFav = (id) => {
+    return (dispatch) => {
+       axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`).then(({ data }) => {
+          return dispatch({
+             type: REMOVE_FAV,
+             payload: data,
+       });
+       });
+    };
+ };
 
 export const filterCards = (gender) => {
     return {

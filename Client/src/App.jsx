@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import axios from 'axios'
 
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
@@ -21,16 +22,16 @@ function App() {
    const characters = useSelector(state => state.characters)
    const location = useLocation()
 
-   const [access, setAccess] = useState(true);
-
-   const EMAIL = "prueba@gmail.com";
-   const PASSWORD = "prueba123";
+   const [access, setAccess] = useState(false);
 
    function login(userData) {
-      if (userData.email.toLowerCase() === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(`${URL}?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    function logOut() {

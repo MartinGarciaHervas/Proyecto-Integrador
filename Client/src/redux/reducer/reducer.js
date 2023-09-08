@@ -12,15 +12,15 @@ function rootReducer(state = initialState, action) {
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, action.payload],
-                allFavorites: [...state.myFavorites, action.payload],
+                myFavorites: action.payload,
+                allFavorites: action.payload,
             }
 
         case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(personaje => personaje.id !== parseInt(action.payload)),
-                allFavorites: state.allFavorites.filter(personaje => personaje.id !== parseInt(action.payload))
+                myFavorites: action.payload,
+                allFavorites: action.payload,
             }
 
         case FILTER:
