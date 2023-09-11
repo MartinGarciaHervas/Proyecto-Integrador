@@ -2,27 +2,28 @@ import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, AD
 import axios from 'axios'
 
 export const addFav = (favorite) => {
-    return (dispatch) => {
-       axios.post('http://localhost:3001/rickandmorty/fav', favorite).then(({ data }) => {
-        console.log(data);
-          return dispatch({
-             type: ADD_FAV,
-             payload: data,
-          });
-       });
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post('http://localhost:3001/rickandmorty/fav', favorite);
+            return dispatch({
+                type: ADD_FAV,
+                payload: data,
+            });
+        } catch { (error) => console.log(error.message); };
     };
- };
+};
 
- export const removeFav = (id) => {
-    return (dispatch) => {
-       axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`).then(({ data }) => {
-          return dispatch({
-             type: REMOVE_FAV,
-             payload: data,
-       });
-       });
+export const removeFav = (id) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`)
+            return dispatch({
+                type: REMOVE_FAV,
+                payload: data,
+            });
+        } catch { (error) => console.log(error.message); };
     };
- };
+};
 
 export const filterCards = (gender) => {
     return {
@@ -39,8 +40,9 @@ export const orderCards = (orden) => {
 }
 
 export const addCharacter = (id) => {
-    return (dispatch) => {
-        return axios.get(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`);
             if (data.name) {
                 const character = data;
                 dispatch({
@@ -48,9 +50,11 @@ export const addCharacter = (id) => {
                     payload: character
                 });
             }
-        }).catch((err)=>{
-            console.log(err);
-        });
+        } catch {
+            (err) => {
+                console.log(err);
+            }
+        };
     };
 };
 
