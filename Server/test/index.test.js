@@ -23,26 +23,39 @@ describe('Test de RUTAS', ()=>{
     describe('GET /rickandmorty/login', ()=>{
 
         it('Responde access:true si el usuario y contraseña son correctos', async()=>{
-            const response = await agent.get('/rickandmorty/login/?email=prueba@gmail.com&password=prueba123')
-            expect(response.text).toEqual("{\"access\":true}")
+            const {body} = await agent.get('/rickandmorty/login/?email=prueba@gmail.com&password=prueba123')
+            expect(body.access).toEqual(true)
         })
 
         it('Responde access:false si el usuario y contraseña son incorrectos', async()=>{
-            const response = await agent.get('/rickandmorty/login/?email=pepe@gmail.com&password=prueba1')
-            expect(response.text).toEqual("{\"access\":false}")
+            const {body} = await agent.get('/rickandmorty/login/?email=pepe@gmail.com&password=prueba1')
+            expect(body.access).toEqual(false)
         })
     })
 
     describe("POST /rickandmorty/fav", ()=>{
         it('Lo que este en "body", debe estar envuelto en un arreglo', async()=>{
-            const response = await agent.post('/rickandmorty/fav', {})
-            expect(response.body).toEqual([{}])
+            const {body} = await agent.post('/rickandmorty/fav').send({id:1,name:'hola'})
+            expect(body).toContainEqual({id:1,name:'hola'})
         })
 
         it('El elemento que envie, debe ser agregado a los ya existentes', async()=>{
-            const [response] = [await agent.post('/rickandmorty/fav', {}), await agent.post('/rickandmorty/fav', {})]
-            expect(response.body).toEqual([{},{}])
+            const {body} = await agent.post('/rickandmorty/fav').send({id:2,name:'pepe'})
+            expect(body).toContainEqual({id:1,name:'hola'})
+            expect(body).toContainEqual({id:2,name:'pepe'})
         })
     })
+//no es lo ideal pero por el momento, al estar en el mismo describe, los test comparten la informacion :(
+    describe("DELETE /rickandmorty/fav/:id", ()=>{
 
+        it('Devuelve el mismo array si el id no existe', async()=>{
+            const {body} = await agent.delete('/rickandmorty/fav/900')
+            expect(body).toContainEqual({id:1,name:'hola'})
+            expect(body).toContainEqual({id:2,name:'pepe'})
+        })
+        it('Elimina al personaje por id', async()=>{
+            const {body} = await agent.delete('/rickandmorty/fav/2')
+            expect(body).toContainEqual({id:1,name:'hola'})
+        })
+    })
 })
