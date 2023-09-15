@@ -18,7 +18,7 @@ export default function Nav(props) {
                 <div className={style.botonesIndex} >
                     <NavLink to='/home'><button className={style.buttons} ><span className="material-symbols-rounded">home</span></button></NavLink>
                     <NavLink to='/favorites'><button className={style.buttons} ><span className="material-symbols-rounded">favorite</span></button></NavLink>
-                    <NavLink to='/about'><button className={style.buttons} ><span>ABOUT</span></button></NavLink>
+                    <NavLink to='/about'><button className={style.buttons} ><span className={style.about} >ABOUT</span></button></NavLink>
                 </div>
                 <div className={style.searchBar} >
                     <SearchBar />

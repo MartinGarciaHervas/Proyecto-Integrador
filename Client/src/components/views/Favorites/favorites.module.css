@@ -1,3 +1,41 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../../assets/r&mFont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'R&M';
+    src: url('../../../assets/get_schwifty.ttf') format('truetype');
+}
+
 .container {
     padding-top: 80px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.filters {
+    background: linear-gradient(to right, #3B5864, #3B5864, #3B5864, #3B5864, black);
+    height: 100vh;
+    position: fixed;
+    width:150px;
+}
+
+.text {
+    font-family: 'MyFont';
+   width:fit-content;
+   padding-left: 10px;
+}
+
+.filtros {
+   width:fit-content;
+   padding-left: 10px;
+}
+
+.select {
+    width: 70px;
+    margin-top: 20px;
 }

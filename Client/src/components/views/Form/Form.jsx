@@ -40,17 +40,27 @@ function Form({ login }) {
                 <h1 className={style.titulo1} >Rick and Morty</h1>
                 <form className={style.container} onSubmit={handleSubmit} >
                     <br />
-                    <label className={style.label}>Email</label>
-                    <input className={style.input} type="text" onChange={handleChange} name='email' placeholder="name@example.com" ></input>
+                    {/* <label className={style.label}>Email</label> */}
+                    <div className={style.email}>
+                        <div className={style.persona}><span className="material-symbols-rounded">person</span></div>
+                        <input className={style.input} type="text" onChange={handleChange} name='email' placeholder="  Email ID" ></input>
+                    </div>
                     <br />
-                    <span className={style.errores} >{errors.email}</span>
+                    <div className={style.span}>
+                        <span className={style.errores} >{errors.email}</span>
+                    </div>
                     <br />
-                    <label className={style.label}>Password</label>
-                    <input className={style.input} type="password" onChange={handleChange} name='password' placeholder="password" ></input>
+                    {/* <label className={style.label}>Password</label> */}
+                    <div className={style.password}>
+                        <div className={style.lock}><span className="material-symbols-rounded">vpn_key</span></div>
+                        <input className={style.input} type="password" onChange={handleChange} name='password' placeholder="  Password" ></input>
+                    </div>
                     <br />
-                    <span className={style.errores} >{errors.password}</span>
+                    <div className={style.span}>
+                        <span className={style.errores} >{errors.password}</span>
+                    </div>
                     <br />
-                    {errors.email || errors.password || !userData.email ? (<button className={style.loginButton} type="submit" disabled><span className="material-symbols-rounded">login</span></button>) : (<button className={style.loginButton} type="submit" >Log in</button>)}
+                    {errors.email || errors.password || !userData.email ? (<button className={style.loginButton} type="submit" disabled><span className="material-symbols-rounded">login</span></button>) : (<button className={style.loginButtonEnabled} type="submit" ><span className="material-symbols-rounded">login</span></button>)}
                 </form>
             </div>
         </div>

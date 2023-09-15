@@ -28,6 +28,23 @@
     border-radius: 999ex;
     width: 350px;
     background-color: black;
+    animation: glow;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0px 0px 20px rgb(0, 255, 0);
+    }
+
+    to {
+        box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    }
 }
 
 .rick {
@@ -45,5 +62,9 @@
     font-family: 'MyFont';
     font-size: 40px;
     color: rgb(118, 196, 0);
+}
+
+.text {
+    color: red;
 }
 

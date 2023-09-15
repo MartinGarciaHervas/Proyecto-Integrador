@@ -21,7 +21,7 @@ function Detail() {
                 <div className={style.rick} >
                     <div className={style.detail1}>
                         <div>
-                        <h2>{detail?.name}</h2>
+                        <h1>{detail?.name}</h1>
                         <h2>Status: {detail?.status}</h2>
                         <h2>Species: {detail?.species}</h2>
                         <h2>Gender: {detail?.gender}</h2>
@@ -33,7 +33,7 @@ function Detail() {
                 <div className={style.background} >
                     <div className={style.detail} >
                         <img className={style.image} src={detail?.image} alt="imagen"></img>
-                        <h2>{detail?.name}</h2>
+                        <h1>{detail?.name}</h1>
                         <h2>Status: {detail?.status}</h2>
                         <h2>Species: {detail?.species}</h2>
                         <h2>Gender: {detail?.gender}</h2>
