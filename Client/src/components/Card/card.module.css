@@ -12,11 +12,7 @@
     background-image: url(../../assets/FondoCard.jpg);
     background-size: cover;
     border-radius: 20px;
-    animation: appear;
-    animation-duration: 1s;
-    animation: glow;
-    animation-iteration-count: infinite;
-    animation-duration: 3s;
+    animation: appear 1s, glow 3s infinite;
 }
 
 @keyframes glow {
