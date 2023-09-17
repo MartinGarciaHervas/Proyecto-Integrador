@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, ADD_RANDOM_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR } from './actionTypes'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR } from './actionTypes'
 import axios from 'axios'
 
 export const addFav = (favorite) => {
@@ -64,21 +64,6 @@ export const removeCharacter = (id) => {
         payload: id,
     }
 }
-
-export const addRandomCharacter = () => {
-    let randomId = parseInt((Math.random() * 826).toFixed());
-    return (dispatch) => {
-        return axios.get(`http://localhost:3001/rickandmorty/character/${randomId}`).then(({ data }) => {
-            if (data.name) {
-                const character = data;
-                dispatch({
-                    type: ADD_RANDOM_CHARACTER,
-                    payload: character
-                });
-            }
-        });
-    };
-};
 
 export const clearCharacters = () => {
     return {

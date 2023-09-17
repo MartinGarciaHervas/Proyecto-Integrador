@@ -2,14 +2,15 @@ import SearchBar from '../SearchBar/SearchBar.jsx';
 import { NavLink } from 'react-router-dom';
 import style from './Nav.module.css'
 import { useDispatch } from 'react-redux';
-import { addRandomCharacter } from '../../redux/actions/actions.js';
+import { addCharacter } from '../../redux/actions/actions.js';
 
 export default function Nav(props) {
 
     const dispatch = useDispatch();
 
     const randomHandler = () => {
-        dispatch(addRandomCharacter())
+        let randomId = parseInt((Math.random() * 826).toFixed())
+        dispatch(addCharacter(randomId))
     }
 
     return (

@@ -1,4 +1,4 @@
-import { ADD_CHARACTER, ADD_FAV, ADD_RANDOM_CHARACTER, CHARACTER_DETAIL, CLEAR_CHARACTERS, DETAIL_CLEAR, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV } from '../actions/actionTypes'
+import { ADD_CHARACTER, ADD_FAV, CHARACTER_DETAIL, CLEAR_CHARACTERS, DETAIL_CLEAR, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV } from '../actions/actionTypes'
 
 let initialState = {
     myFavorites: [],
@@ -47,13 +47,6 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 characters: state.characters.filter(personaje => personaje.id !== action.payload)
             }
-
-        case ADD_RANDOM_CHARACTER:
-            if (!state.characters.some(character => character.id === parseInt(action.payload.id)))
-                return {
-                    ...state,
-                    characters: [...state.characters, action.payload]
-                }
 
         case CLEAR_CHARACTERS:
             return {
