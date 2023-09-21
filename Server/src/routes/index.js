@@ -1,7 +1,7 @@
-const {Router} = require('express');
+const { Router } = require('express');
 
 const getCharById = require('../controllers/getCharById');
-const {postFav, deleteFav} = require('../controllers/handleFavorites');
+const { postFav, deleteFav } = require('../controllers/handleFavorites');
 const login = require('../controllers/login');
 
 const mainRouter = Router()

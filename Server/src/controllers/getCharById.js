@@ -17,18 +17,19 @@
 
 const axios = require('axios');
 
-async function getCharById (req, res){
-    const {id} = req.params;
-    try{
-    const {data} = await axios(`https://rickandmortyapi.com/api/character/${id}`);
+async function getCharById(req, res) {
+    const { id } = req.params;
+    try {
+        const { data } = await axios(`https://rickandmortyapi.com/api/character/${id}`);
 
-        if(data.name){
+        if (data.name) {
             res.status(200).json(data)
         } else {
             res.status(404).send('Not Found')
         }
-    } catch (error){
+    } catch (error) {
         res.status(500).send(error.message)
-    }}
+    }
+}
 
 module.exports = getCharById;
