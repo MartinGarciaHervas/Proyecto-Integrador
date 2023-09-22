@@ -21,23 +21,7 @@ function App() {
    const navigate = useNavigate();
    const characters = useSelector(state => state.characters)
    const location = useLocation()
-
-   const [access, setAccess] = useState(false);
-
-   async function login(userData) {
-      const { email, password } = userData;
-      try{
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      const {data} = await axios(`${URL}?email=${email}&password=${password}`)
-         const { access } = data;
-         setAccess(data);
-         access && navigate('/home');
-      }catch{(error)=>console.log(error.message);};
-   }
-
-   function logOut() {
-      setAccess(false);
-   }
+   const access = useSelector(state => state.access)
 
    useEffect(() => {
       !access && navigate('/');
@@ -45,19 +29,19 @@ function App() {
 
 
    return (
-         <div className={style.App}>
-            {location.pathname !== "/" ? (<Nav logOut={logOut} />) : null}
+      <div className={style.App}>
+         {location.pathname !== "/" ? (<Nav />) : null}
 
-            <Routes>
-               <Route path='/home' element={<Cards characters={characters} />} />
-               <Route path='/about' element={<About />} />
-               <Route path='/detail/:id' element={<Detail />} />
-               <Route path='/favorites' element={<Favorites />} />
-               <Route path='/' element={<Form login={login} />} />
-               <Route path='*' element={<Error />} />
-            </Routes>
+         <Routes>
+            <Route path='/home' element={<Cards characters={characters} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/detail/:id' element={<Detail />} />
+            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/' element={<Form />} />
+            <Route path='*' element={<Error />} />
+         </Routes>
 
-         </div>
+      </div>
    );
 }
 

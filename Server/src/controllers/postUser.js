@@ -4,8 +4,8 @@ const postUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         if (email && password) {
-            const user = await User.findOrCreate({ where: { email:email, password:password }, defaults: { email, password } });
-            return res.status(200).json(user)
+            await User.findOrCreate({ where: { email:email, password:password }, defaults: { email, password } });
+            return res.status(200).json('Registrado con exito!')
         }
         return res.status(400).json('Faltan datos')
     } catch (error) {

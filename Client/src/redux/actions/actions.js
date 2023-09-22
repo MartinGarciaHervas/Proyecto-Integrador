@@ -1,5 +1,27 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR } from './actionTypes'
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, ADD_CHARACTER, REMOVE_CHARACTER, CLEAR_CHARACTERS, CHARACTER_DETAIL, DETAIL_CLEAR, LOGIN, LOGOUT} from './actionTypes'
 import axios from 'axios'
+
+export const login = (userData) => {
+    return async (dispatch) => {
+        try {
+            const {email, password} = userData;
+            const { data } = await axios.get(`http://localhost:3001/rickandmorty/login/?email=${email}&password=${password}`);
+            return dispatch({
+                type: LOGIN,
+                payload: data,
+            })
+        } catch (error) {
+            alert('Usuario no encontrado. Registrate!');
+        }
+    }
+}
+
+export const logout = () => {
+    return {
+        type: LOGOUT,
+        payload: {access: false}
+    }
+}
 
 export const addFav = (favorite) => {
     return async (dispatch) => {

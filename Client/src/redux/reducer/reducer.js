@@ -1,14 +1,28 @@
-import { ADD_CHARACTER, ADD_FAV, CHARACTER_DETAIL, CLEAR_CHARACTERS, DETAIL_CLEAR, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV } from '../actions/actionTypes'
+import { ADD_CHARACTER, ADD_FAV, CHARACTER_DETAIL, CLEAR_CHARACTERS, DETAIL_CLEAR, FILTER, ORDER, REMOVE_CHARACTER, REMOVE_FAV, LOGIN, LOGOUT } from '../actions/actionTypes'
 
 let initialState = {
     myFavorites: [],
     allFavorites: [],
     characters: [],
     detail: [],
+    access: false,
 }
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
+
+        case LOGIN:
+            return {
+                ...state,
+                access: action.payload.access,
+            }
+
+        case LOGOUT:
+            return {
+                ...state,
+                access: action.payload.access,
+            }
+
         case ADD_FAV:
             return {
                 ...state,
